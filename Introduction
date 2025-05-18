@@ -1,0 +1,57 @@
+About Dataset
+Overview:
+This dataset is a synthetic collection of 3000 rows simulating information about Netflix movies and TV shows. It is designed to capture details such as content type, genre, release year, ratings, duration, and production country.
+
+Dataset Columns:
+Title:
+
+Unique title of the movie or TV show.
+Example: Title 1, Title 2.
+Type:
+
+Specifies whether the content is a Movie or a TV Show.
+Example: Movie, TV Show.
+Genre:
+
+Describes the genre of the content.
+Example: Drama, Comedy, Action, Romance, Sci-Fi.
+Release Year:
+
+The year when the movie or TV show was released.
+Range: 1950 to 2023.
+Example: 2001, 2015.
+Rating:
+
+Age ratings assigned to the content.
+Categories: G, PG, PG-13, R, TV-MA, TV-14, TV-PG.
+Example: TV-MA, PG.
+Duration:
+
+For movies: Runtime in minutes.
+For TV shows: Number of seasons.
+Example: 120 min (for movies), 2 Seasons (for TV shows).
+Country:
+
+The country where the movie or TV show was produced.
+Example: United States, India, Japan, United Kingdom.
+
+Example Data (Preview):
+Title Type Genre Release Year Rating Duration Country
+Title 1 Movie Drama 2015 PG-13 120 min United States
+Title 2 TV Show Comedy 2020 TV-MA 2 Seasons India
+Title 3 Movie Action 1998 R 90 min United Kingdom
+
+Potential Use Cases:
+Exploratory Data Analysis (EDA):
+
+Analyze the distribution of genres, ratings, or release years.
+Recommendation Systems:
+
+Build content recommendation models based on genre, type, or user preferences.
+Visualization:
+
+Visualize trends in Netflix content over the years.
+Compare the production of movies vs. TV shows.
+Machine Learning:
+
+Classify content type based on attributes like genre and release year.
