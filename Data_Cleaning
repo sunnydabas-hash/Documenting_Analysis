@@ -1,0 +1,54 @@
+#Data Exploration
+
+SELECT * FROM portfolioproject1-460003.netflix_movies.movies_data LIMIT 10 ;
+
+#Checking Total Rows 
+SELECT COUNT(*) FROM portfolioproject1-460003.netflix_movies.movies_data;
+
+
+
+SELECT DISTINCT(Type) , COUNT(Title) AS Categories FROM portfolioproject1-460003.netflix_movies.movies_data GROUP BY Type;
+
+--In order to do data exploration , we need to explore data columns and their type of data 
+
+SELECT column_name, data_type
+FROM portfolioproject1-460003.netflix_movies.INFORMATION_SCHEMA.COLUMNS
+WHERE table_name = 'movies_data';
+
+
+#COUNTING NULL Values 
+
+SELECT COUNT(*) - COUNT(Title) Title,
+    COUNT(*) - COUNT(Type) Type,
+    COUNT(*) - COUNT(Genre) Genre,
+    COUNT(*) - COUNT('Release Year') Release_Year,
+    COUNT(*) - COUNT(Rating) Rating,
+    COUNT(*) - COUNT(Duration) Duration, 
+    COUNT(*) - COUNT(Country) Country
+
+FROM portfolioproject1-460003.netflix_movies.movies_data;  -- No Null values Data_cleaned
+
+#Duplicates -- Finding Duplicates
+
+SELECT COUNT(Title) - COUNT(DISTINCT Title) AS Duplicate_titles
+FROM portfolioproject1-460003.netflix_movies.movies_data;  -- 0 
+
+
+#COUNTING Movies/Shows produced in each Genre
+SELECT DISTINCT Genre , COUNT(Title)
+FROM portfolioproject1-460003.netflix_movies.movies_data GROUP BY Genre; 
+
+#Action-367 Comedy-369 Documentary-369 Drama-378 Horror-398 ROmance-376 Sci-Fi-345 Thriller-398
+
+#Finding No. of content produced by each country
+SELECT DISTINCT Country, COUNT(Type) AS Total_content_production FROM portfolioproject1-460003.netflix_movies.movies_data GROUP BY Country;
+Japan 349,	South Korea-376,	Canada-421,	India-349, United States-369,	Australia-371, Germany-373, United Kingdom-392
+
+#Number of Movies/TV Shows produced w.r.t Release Year
+SELECT `Release Year` , COUNT(Title) AS Content_this_year FROM portfolioproject1-460003.netflix_movies.movies_data GROUP BY `Release Year` ;
+
+#Movies Produced by each country
+SELECT DISTINCT Country , COUNT(Type) AS Country_wise_movies FROM portfolioproject1-460003.netflix_movies.movies_data WHERE Type = 'Movie' GROUP BY Country;
+
+#TV Shows produced by each country
+SELECT DISTINCT Country, COUNT(Type) AS Country_wise_shows FROM portfolioproject1-460003.netflix_movies.movies_data WHERE Type = 'TV Show' GROUP BY Country;
